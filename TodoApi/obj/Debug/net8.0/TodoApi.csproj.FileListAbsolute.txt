@@ -302,3 +302,4 @@ C:\Users\User\Desktop\מסלול\practiCode4\TodoApi\obj\Debug\net8.0\refint\Tod
 C:\Users\User\Desktop\מסלול\practiCode4\TodoApi\obj\Debug\net8.0\TodoApi.pdb
 C:\Users\User\Desktop\מסלול\practiCode4\TodoApi\obj\Debug\net8.0\TodoApi.genruntimeconfig.cache
 C:\Users\User\Desktop\מסלול\practiCode4\TodoApi\obj\Debug\net8.0\ref\TodoApi.dll
+C:\Users\User\Desktop\מסלול\practiCode4\TodoApi\obj\Debug\net8.0\TodoApi.sourcelink.json
