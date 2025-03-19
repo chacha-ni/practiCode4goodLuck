@@ -28,3 +28,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "TodoApi.dll"]
+
+ENV DOTNET_GCHeapHardLimit 100000000
