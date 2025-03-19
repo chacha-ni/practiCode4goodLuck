@@ -1,100 +1,4 @@
-// using Microsoft.AspNetCore.Mvc;
-// using Microsoft.EntityFrameworkCore;
-// using TodoApi;
-// using Microsoft.AspNetCore.Builder;
-// using Microsoft.Extensions.DependencyInjection;
-// using MySql.EntityFrameworkCore;
-// using Microsoft.OpenApi.Models;
 
-
-// var builder = WebApplication.CreateBuilder(args);
-
-// builder.Services.AddDbContext<ToDoDbContext>(options =>
-//     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-// builder.Services.AddCors(option => option.AddPolicy("AllowAll",//נתינת שם להרשאה
-//     p => p.AllowAnyOrigin()//מאפשר כל מקור
-//     .AllowAnyMethod()//כל מתודה - פונקציה
-//     .AllowAnyHeader()));//וכל כותרת פונקציה
-
-// // builder.Services.AddOpenApi();
-// builder.Services.AddEndpointsApiExplorer();
-// builder.Services.AddSwaggerGen(c =>
-// {
-//     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
-// }
-// );
-
-
-// var app = builder.Build();
-
-// app.UseCors("AllowAll");
-// app.Urls.Add("http://localhost:5000");
-// if (app.Environment.IsDevelopment())
-// {
-//     app.UseSwagger();
-//     app.UseSwaggerUI();
-// }
-
-// app.MapGet("/", async (ToDoDbContext dbContext) =>
-// {
-//     var item = await dbContext.Items.ToListAsync();
-//     if(item == null)
-//     {
-//         return Results.NotFound();
-//     }
-//     Console.WriteLine("items");
-//     return Results.Ok(item);
-// });
-// app.MapPost("/{name}", async (ToDoDbContext dbContext,string name) =>
-// {
-
-//      Item item=null;
-//      item.Id=66;
-//      item.Name=name;
-//      item.IsComplete=true;
-//     dbContext.Items.Add(item);
-//     await dbContext.SaveChangesAsync();
-//     return Results.Created($"/{item.Id}", item);
-// });
-
-// app.MapDelete("/{id}", async (ToDoDbContext dbContext, int id) =>
-// {
-//     var item = await dbContext.Items.FindAsync(id);
-//     if(item == null)
-//     {
-//         return Results.NotFound();
-//     }
-//     dbContext.Items.Remove(item);
-//     await dbContext.SaveChangesAsync();
-//     return Results.Ok();
-// });
-
-
-// app.MapPut("/{id}", async (ToDoDbContext dbContext, int id, Item item) =>
-// {
-//     if(id != item.Id)
-//     {
-//         Console.WriteLine("id not match");
-//         return Results.BadRequest();
-//     }
-//     dbContext.Entry(item).State = EntityState.Modified;
-//     try
-//     {
-//         Console.WriteLine("try");
-//         await dbContext.SaveChangesAsync();
-//         return Results.Ok(item);
-//     }
-//     catch(DbUpdateConcurrencyException)
-//     {
-//        Console.WriteLine("DbUpdateConcurrencyException");
-//             throw;
-//     }
-   
-// });
-// app.Run();
-// // app.Run(async context => context.Response.Redirect("/"));
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TodoApi;
@@ -123,6 +27,10 @@ var app = builder.Build();
 
 app.UseCors("AllowAll");
 app.Urls.Add("http://localhost:5000");
+app.Urls.Add("http://0.0.0.0:5000"); // עבור קריאה מה Docker
+
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+app.Urls.Add($"http://0.0.0.0:{port}");
 
 if (app.Environment.IsDevelopment())
 {
