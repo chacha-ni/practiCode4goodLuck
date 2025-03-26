@@ -8,6 +8,8 @@ using MySql.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
+    //   "DefaultConnection": "server=localhost;user=root;password=Nn215552936!;database=database"
+
 
 builder.Services.AddDbContext<ToDoDbContext>(options =>
     options.UseMySQL(builder.Configuration.GetConnectionString("DefaultConnection")));
