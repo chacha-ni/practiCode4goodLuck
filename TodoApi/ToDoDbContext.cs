@@ -18,14 +18,14 @@ public partial class ToDoDbContext : DbContext
     public virtual DbSet<Item> Items { get; set; }
 
 
-protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-{
-    optionsBuilder.UseMySQL("server=localhost;user=root;password=Nn215552936!;database=database");
-}
+// protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+// {
+//     optionsBuilder.UseMySQL("mysql://uudtiwvk5cmts4wa:4P4RlE91Qvwin0ZhAWkT@btvvodt2k4n7c3tyv7ia-mysql.services.clever-cloud.com:3306/btvvodt2k4n7c3tyv7ia");
+// }
 
-    // protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    // #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-    //     => optionsBuilder.UseMySQL("server=localhost;user=root;password=Nn215552936!;database=database");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseMySQL("mysql://uudtiwvk5cmts4wa:4P4RlE91Qvwin0ZhAWkT@btvvodt2k4n7c3tyv7ia-mysql.services.clever-cloud.com:3306/btvvodt2k4n7c3tyv7ia");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
