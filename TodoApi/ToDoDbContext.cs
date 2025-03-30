@@ -25,8 +25,8 @@ public partial class ToDoDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseMySQL("mysql://uudtiwvk5cmts4wa:4P4RlE91Qvwin0ZhAWkT@btvvodt2k4n7c3tyv7ia-mysql.services.clever-cloud.com:3306/btvvodt2k4n7c3tyv7ia");
-
+        => optionsBuilder.UseMySQL("server=btvvodt2k4n7c3tyv7ia-mysql.services.clever-cloud.com;port=3306;user=uudtiwvk5cmts4wa;password=4P4RlE91Qvwin0ZhAWkT;database=btvvodt2k4n7c3tyv7ia");
+//
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Item>(entity =>
