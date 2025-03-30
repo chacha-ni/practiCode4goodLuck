@@ -30,9 +30,9 @@ var app = builder.Build();
 app.UseCors("AllowAll");
 
 
-app.Urls.Add("http://localhost:5000");
-var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
-app.Urls.Add($"http://0.0.0.0:{port}");
+// app.Urls.Add("http://localhost:5000");
+// var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+// app.Urls.Add($"http://0.0.0.0:{port}");
 
 
 if (app.Environment.IsDevelopment())
